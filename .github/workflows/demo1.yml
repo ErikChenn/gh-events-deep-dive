@@ -3,8 +3,16 @@ on:
   pull_request:
     types: 
       - opened
+    
   workflow_dispatch:
-  
+  push:
+    branches: 
+      - master
+      - 'dev-*' # dev-new dev-this-is-new
+      - 'fet/**' #feat/new feat/new/button
+    paths-ignore:
+      - '.github/workflow/*' 
+
 jobs:
   deploy:
     runs-on: windows-latest
